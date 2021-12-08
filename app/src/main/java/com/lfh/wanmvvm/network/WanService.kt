@@ -31,8 +31,7 @@ interface WanService {
     fun login(
         @Field("username") userName: String,
         @Field("password") password: String
-    ):Call<LoginModel>
-
+    ): Call<LoginModel>
 
 
 }

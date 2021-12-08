@@ -12,7 +12,17 @@ object MainNetWork {
     //创建主要的请求Service
     private val mainService = RetrofitBuilder.create(WanService::class.java)
 
+    //请求主页banner信息
     suspend fun searchBanners() = mainService.searchBanners().await()
+
+    //请求登录信息
+    suspend fun login(userName: String, password: String) =
+        mainService.login(userName, password).await()
+
+    //注册用户信息
+    suspend fun register(userName: String, password: String, repassword: String) =
+        mainService.register(userName, password, repassword).await()
+
 
     /**
      * 发起网络请求
@@ -35,12 +45,6 @@ object MainNetWork {
             })
         }
     }
-
-
-
-
-
-
 
 
 }
