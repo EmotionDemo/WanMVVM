@@ -1,9 +1,12 @@
 package com.lfh.wanmvvm.network
 
 import android.accounts.NetworkErrorException
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.lfh.wanmvvm.logic.model.BannerData
 import com.lfh.wanmvvm.logic.model.LoginModel
+import com.lfh.wanmvvm.logic.model.RegisterModel
 import com.lfh.wanmvvm.network.MainNetWork
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
@@ -14,6 +17,8 @@ import java.lang.Exception
  */
 
 object Repository {
+
+    private val TAG: String = "Repository"
 
     /**
      * 查询banner信息
@@ -59,8 +64,10 @@ object Repository {
             val result = try {
                 val registerData = MainNetWork.register(userName, password, repassword)
                 if (registerData.errorCode == 0) {
+                    Log.d(TAG, registerData.toString())
                     Result.success(registerData)
                 } else {
+                    Log.d(TAG, registerData.toString())
                     Result.failure(NetworkErrorException("network fail errorCode is ${registerData.errorCode}"))
                 }
             } catch (e: Exception) {
@@ -68,6 +75,5 @@ object Repository {
             }
             emit(result)
         }
-
 
 }

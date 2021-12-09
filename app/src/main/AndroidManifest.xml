@@ -3,15 +3,22 @@
     package="com.lfh.wanmvvm">
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WanMVVM"
-        android:name=".MyApp"
-        >
+        android:theme="@style/Theme.WanMVVM">
+        <activity
+            android:name=".ui.activity.BaseActivity"
+            android:exported="false"
+            android:label="@string/title_activity_base"
+            android:theme="@style/Theme.WanMVVM.NoActionBar" />
         <activity android:name=".ui.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
