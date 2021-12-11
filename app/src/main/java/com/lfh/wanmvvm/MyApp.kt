@@ -9,7 +9,9 @@ import java.util.logging.Level
 class MyApp : Application() {
     companion object {
         @SuppressLint("StaticFieldLeak")
-        lateinit var context: Context
+        private lateinit var context: Context
+        public fun getContext() = context
+
     }
 
     override fun onCreate() {
