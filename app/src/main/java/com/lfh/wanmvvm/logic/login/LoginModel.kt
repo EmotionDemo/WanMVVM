@@ -1,4 +1,4 @@
-package com.lfh.wanmvvm.logic.model
+package com.lfh.wanmvvm.logic.login
 
 class LoginModel {
     /**

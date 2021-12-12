@@ -4,7 +4,7 @@ import android.content.Context
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.annotation.StringRes
-import com.lfh.wanmvvm.MyApp
+import com.lfh.wanmvvm.app.MyApp
 
 fun Context.toast(content: String, duration: Int = Toast.LENGTH_SHORT) {
     if (TextUtils.isEmpty(content)) return

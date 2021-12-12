@@ -1,10 +1,8 @@
-package com.lfh.wanmvvm
+package com.lfh.wanmvvm.app
 
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import com.lfh.wanmvvm.BuildConfig.DEBUG
-import java.util.logging.Level
 
 class MyApp : Application() {
     companion object {

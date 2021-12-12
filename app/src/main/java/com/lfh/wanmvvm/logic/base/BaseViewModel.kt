@@ -1,4 +1,4 @@
-package com.lfh.wanmvvm.logic.viewmodel
+package com.lfh.wanmvvm.logic.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
