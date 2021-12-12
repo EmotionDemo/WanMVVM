@@ -4,18 +4,16 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lfh.wanmvvm.logic.base.BaseViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
 
-class LoginViewModel: BaseViewModel() {
+class LoginViewModel : BaseViewModel() {
 
     private val TAG: String = LoginViewModel::class.java.simpleName
 
     /**
      * 用户名
      */
-    val userName  = ObservableField<String>().apply {
+    val userName = ObservableField<String>().apply {
         set("")
     }
 
@@ -36,7 +34,7 @@ class LoginViewModel: BaseViewModel() {
     /**
      * 登录LiveData
      */
-    val loginLiveData =MutableLiveData<LoginModel>()
+    val loginLiveData = MutableLiveData<LoginModel>()
 
     private val loginRepository by lazy {
         //初始化Repository
@@ -46,9 +44,9 @@ class LoginViewModel: BaseViewModel() {
     /**
      * 登录
      */
-    fun login( ) {
-        viewModelScope.launch(Dispatchers.IO) {
-            loginRepository.login(userName.get()!!, password.get()!!)
+    fun login() {
+        launch {
+            loginLiveData.value = loginRepository.login(userName.get()!!, password.get()!!)
         }
     }
 

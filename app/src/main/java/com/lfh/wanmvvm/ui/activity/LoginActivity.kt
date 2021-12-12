@@ -1,6 +1,5 @@
 package com.lfh.wanmvvm.ui.activity
 
-import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -9,18 +8,20 @@ import androidx.lifecycle.ViewModelStoreOwner
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.ActivityLoginBinding
 import com.lfh.wanmvvm.logic.base.BaseActivity
+import com.lfh.wanmvvm.logic.login.LoginModel
 import com.lfh.wanmvvm.logic.login.LoginViewModel
 import com.lfh.wanmvvm.util.toast
+
+/**
+ * author:love ZhaoXiaoYu
+ */
 
 class LoginActivity : BaseActivity() {
 
     val TAG: String = "LoginActivity"
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     /**
      * 初始化binding
@@ -32,7 +33,10 @@ class LoginActivity : BaseActivity() {
     /**
      * 初始化ViewModel
      */
-    override fun <T : ViewModel> initViewModel(owner: ViewModelStoreOwner, modelClass: Class<T>): T {
+    override fun <T : ViewModel> initViewModel(
+        owner: ViewModelStoreOwner,
+        modelClass: Class<T>
+    ): T {
         loginViewModel = super.initViewModel(this, LoginViewModel::class.java)
         binding.loginViewModel = loginViewModel
         return loginViewModel as T
@@ -51,29 +55,36 @@ class LoginActivity : BaseActivity() {
                 toast("请输入密码")
                 return@setOnClickListener
             }
+            setViewStatus(false)
+            loginViewModel.login()
         }
-        setViewStatus(false)
-        loginViewModel.login()
+
     }
 
     override fun observe() {
-        loginViewModel.loginLiveData.observe(this, Observer {
-            toast("登录成功")
+        loginViewModel.loginLiveData.observe(this, object : Observer<LoginModel> {
+            override fun onChanged(it: LoginModel) {
+                setViewStatus(true)
+                toast("欢迎回来：" + it.nickname)
+            }
         })
-        loginViewModel.errorLiveData.observe(this, Observer {
+        loginViewModel.errorLiveData.observe(this, {
             setViewStatus(true)
+            toast(it.errorMsg)
         })
+
+
     }
 
     /**
      * 设置登陆页控件状态
      */
-    fun setViewStatus(canUse: Boolean) {
-        binding.btnLogin.isEnabled = canUse
-        binding.btnRegister.isEnabled = canUse
-        binding.etPwd.isEnabled = canUse
-        binding.etUserName.isEnabled = canUse
-        if (!canUse) {
+    fun setViewStatus(loginOk: Boolean) {
+        binding.btnLogin.isEnabled = loginOk
+        binding.btnRegister.isEnabled = loginOk
+        binding.etPwd.isEnabled = loginOk
+        binding.etUserName.isEnabled = loginOk
+        if (!loginOk) {
             binding.loginProBar.visibility = View.VISIBLE
         } else {
             binding.loginProBar.visibility = View.GONE

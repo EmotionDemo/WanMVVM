@@ -12,8 +12,9 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initBinding()
         initViewModel(this, BaseViewModel::class.java)
-        initView()
         observe()
+        initView()
+
     }
 
     open fun <T : ViewModel> initViewModel(owner: ViewModelStoreOwner, modelClass: Class<T>): T {

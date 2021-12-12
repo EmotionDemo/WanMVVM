@@ -16,6 +16,4 @@ open class BaseRepository {
             block.invoke()
         }
     }
-
-
 }
