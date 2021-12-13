@@ -1,5 +1,6 @@
 package com.lfh.wanmvvm.network
 
+import com.lfh.wanmvvm.logic.base.BaseModel
 import com.lfh.wanmvvm.logic.base.DataResponse
 import com.lfh.wanmvvm.logic.model.BannerData
 import com.lfh.wanmvvm.logic.model.BaseResponse

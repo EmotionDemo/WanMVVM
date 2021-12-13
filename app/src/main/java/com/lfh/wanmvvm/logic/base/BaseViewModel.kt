@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lfh.wanmvvm.BuildConfig
-import com.lfh.wanmvvm.network.ApiException
+import com.lfh.wanmvvm.exception.ApiException
 import com.lfh.wanmvvm.util.toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

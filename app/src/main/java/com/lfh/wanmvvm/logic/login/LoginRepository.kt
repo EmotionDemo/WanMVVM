@@ -1,12 +1,9 @@
 package com.lfh.wanmvvm.logic.login
 
-import android.widget.Toast
-import com.lfh.wanmvvm.app.MyApp
 import com.lfh.wanmvvm.constants.Constant.USER_INFO
 import com.lfh.wanmvvm.constants.Constant.USER_LOGIN
 import com.lfh.wanmvvm.logic.base.BaseRepository
 import com.lfh.wanmvvm.logic.event.LoginEvent
-import com.lfh.wanmvvm.network.ApiException
 import com.lfh.wanmvvm.network.RetrofitManager
 import com.lfh.wanmvvm.network.WanService
 import com.lfh.wanmvvm.util.SpUtil

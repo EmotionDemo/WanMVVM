@@ -22,7 +22,6 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
-
     /**
      * 初始化binding
      */
@@ -68,11 +67,11 @@ class LoginActivity : BaseActivity() {
                 toast("欢迎回来：" + it.nickname)
             }
         })
+
         loginViewModel.errorLiveData.observe(this, {
             setViewStatus(true)
             toast(it.errorMsg)
         })
-
 
     }
 

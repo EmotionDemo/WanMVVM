@@ -4,6 +4,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lfh.wanmvvm.logic.base.BaseViewModel
+import com.lfh.wanmvvm.exception.ApiException
 import kotlinx.coroutines.cancel
 
 class LoginViewModel : BaseViewModel() {
@@ -35,7 +36,6 @@ class LoginViewModel : BaseViewModel() {
      * 登录LiveData
      */
     val loginLiveData = MutableLiveData<LoginModel>()
-
     private val loginRepository by lazy {
         //初始化Repository
         LoginRepository()
@@ -46,10 +46,13 @@ class LoginViewModel : BaseViewModel() {
      */
     fun login() {
         launch {
-            loginLiveData.value = loginRepository.login(userName.get()!!, password.get()!!)
+            try {
+                loginLiveData.value = loginRepository.login(userName.get()!!, password.get()!!)
+            } catch (e: ApiException) {
+                errorLiveData.value = ApiException(e.errorMsg, e.errorCode)
+            }
         }
     }
-
 
     override fun onCleared() {
         super.onCleared()

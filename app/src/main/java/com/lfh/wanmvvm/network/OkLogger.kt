@@ -1,6 +1,7 @@
-package com.lfh.wanmvvm.network;
+package com.lfh.wanmvvm.network
 
-import android.util.Log;
+import android.util.Log
+import com.lfh.wanmvvm.network.OkLogger
 
 /**
  * ================================================
@@ -11,61 +12,60 @@ import android.util.Log;
  * 修订历史：
  * ================================================
  */
-public class OkLogger {
-    private static boolean isLogEnable = true;
-
-    private static String tag = "OkHttp";
-
-    public static void debug(boolean isEnable) {
-        debug(tag, isEnable);
+object OkLogger {
+    private var isLogEnable = true
+    private var tag = "OkHttp"
+    fun debug(isEnable: Boolean) {
+        debug(tag, isEnable)
     }
 
-    public static void debug(String logTag, boolean isEnable) {
-        tag = logTag;
-        isLogEnable = isEnable;
+    fun debug(logTag: String, isEnable: Boolean) {
+        tag = logTag
+        isLogEnable = isEnable
     }
 
-    public static void v(String msg) {
-        v(tag, msg);
+    fun v(msg: String?) {
+        v(tag, msg)
     }
 
-    public static void v(String tag, String msg) {
-        if (isLogEnable) Log.v(tag, msg);
+    fun v(tag: String?, msg: String?) {
+        if (isLogEnable) Log.v(tag, msg!!)
     }
 
-    public static void d(String msg) {
-        d(tag, msg);
+    fun d(msg: String?) {
+        d(tag, msg)
     }
 
-    public static void d(String tag, String msg) {
-        if (isLogEnable) Log.d(tag, msg);
+    fun d(tag: String?, msg: String?) {
+        if (isLogEnable) Log.d(tag, msg!!)
     }
 
-    public static void i(String msg) {
-        i(tag, msg);
+    fun i(msg: String?) {
+        i(tag, msg)
     }
 
-    public static void i(String tag, String msg) {
-        if (isLogEnable) Log.i(tag, msg);
+    fun i(tag: String?, msg: String?) {
+        if (isLogEnable) Log.i(tag, msg!!)
     }
 
-    public static void w(String msg) {
-        w(tag, msg);
+    fun w(msg: String?) {
+        w(tag, msg)
     }
 
-    public static void w(String tag, String msg) {
-        if (isLogEnable) Log.w(tag, msg);
+    fun w(tag: String?, msg: String?) {
+        if (isLogEnable) Log.w(tag, msg!!)
     }
 
-    public static void e(String msg) {
-        e(tag, msg);
+    fun e(msg: String?) {
+        e(tag, msg)
     }
 
-    public static void e(String tag, String msg) {
-        if (isLogEnable) Log.e(tag, msg);
+    fun e(tag: String?, msg: String?) {
+        if (isLogEnable) Log.e(tag, msg!!)
     }
 
-    public static void printStackTrace(Throwable t) {
-        if (isLogEnable && t != null) t.printStackTrace();
+    @JvmStatic
+    fun printStackTrace(t: Throwable?) {
+        if (isLogEnable && t != null) t.printStackTrace()
     }
 }

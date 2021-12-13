@@ -1,6 +1,6 @@
 package com.lfh.wanmvvm.logic.base
 
-import com.lfh.wanmvvm.network.ApiException
+import com.lfh.wanmvvm.exception.ApiException
 import java.io.Serializable
 
 class DataResponse<T> : Serializable {

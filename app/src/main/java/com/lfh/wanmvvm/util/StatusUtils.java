@@ -27,7 +27,7 @@ public class StatusUtils {
      * Default status bar color between 21(5.0) and 23(6.0).
      * If status color is white, you can set the color outermost.
      */
-    public static int defaultColor_21 = ColorUtils.parseColor("#33000000");
+    public static int defaultColor_21 = ColorUtils.Companion.parseColor("#33000000");
 
     /**
      * Setting the status bar color.

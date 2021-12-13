@@ -24,6 +24,7 @@ object RetrofitFactory {
                 .readTimeout(DEFAULT_TIMEOUT.toLong(), TimeUnit.MILLISECONDS)
                 .connectTimeout(DEFAULT_TIMEOUT.toLong(), TimeUnit.MILLISECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT.toLong(), TimeUnit.MILLISECONDS)
+                .retryOnConnectionFailure(true)
                 .addInterceptor(getLogInterceptor())
                 .cookieJar(getCookie())
                 .cache(getCache())
