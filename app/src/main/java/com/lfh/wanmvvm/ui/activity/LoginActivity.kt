@@ -1,14 +1,13 @@
 package com.lfh.wanmvvm.ui.activity
 
+import android.content.Intent
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.ActivityLoginBinding
 import com.lfh.wanmvvm.logic.base.BaseActivity
-import com.lfh.wanmvvm.logic.login.LoginModel
 import com.lfh.wanmvvm.logic.login.LoginViewModel
 import com.lfh.wanmvvm.util.toast
 
@@ -58,20 +57,24 @@ class LoginActivity : BaseActivity() {
             loginViewModel.login()
         }
 
+        binding.ivRegister.setOnClickListener{
+            val intent = Intent(this,RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun observe() {
-        loginViewModel.loginLiveData.observe(this, object : Observer<LoginModel> {
-            override fun onChanged(it: LoginModel) {
-                setViewStatus(true)
-                toast("欢迎回来：" + it.nickname)
-            }
+        loginViewModel.loginLiveData.observe(this, {
+            setViewStatus(true)
+            toast("欢迎回来：" + it.nickname)
         })
 
         loginViewModel.errorLiveData.observe(this, {
             setViewStatus(true)
             toast(it.errorMsg)
         })
+
 
     }
 
@@ -80,9 +83,9 @@ class LoginActivity : BaseActivity() {
      */
     fun setViewStatus(loginOk: Boolean) {
         binding.btnLogin.isEnabled = loginOk
-        binding.btnRegister.isEnabled = loginOk
         binding.etPwd.isEnabled = loginOk
         binding.etUserName.isEnabled = loginOk
+        binding.ivRegister.isEnabled = loginOk
         if (!loginOk) {
             binding.loginProBar.visibility = View.VISIBLE
         } else {

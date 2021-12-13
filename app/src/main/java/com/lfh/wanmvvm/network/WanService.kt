@@ -1,11 +1,10 @@
 package com.lfh.wanmvvm.network
 
-import com.lfh.wanmvvm.logic.base.BaseModel
 import com.lfh.wanmvvm.logic.base.DataResponse
 import com.lfh.wanmvvm.logic.model.BannerData
 import com.lfh.wanmvvm.logic.model.BaseResponse
 import com.lfh.wanmvvm.logic.login.LoginModel
-import com.lfh.wanmvvm.logic.model.RegisterModel
+import com.lfh.wanmvvm.logic.register.RegisterModel
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -25,7 +24,7 @@ interface WanService {
         @Field("username") userName: String,
         @Field("password") password: String,
         @Field("repassword") repassword: String
-    ): Call<RegisterModel>
+    ): DataResponse<RegisterModel>
 
     //登录
     @FormUrlEncoded

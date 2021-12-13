@@ -16,6 +16,14 @@
         tools:context=".ui.activity.LoginActivity">
 
         <ImageView
+            android:id="@+id/ivRegister"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="15dp"
+            android:src="@mipmap/ic_register"
+            />
+
+        <ImageView
             android:id="@+id/ivBack"
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -65,10 +73,10 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="50dp"
                 android:layout_weight="1"
                 android:background="@android:color/holo_blue_light"
                 android:text="登录"
@@ -76,18 +84,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="50dp"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:text="注册"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+
         </LinearLayout>
 
         <ProgressBar

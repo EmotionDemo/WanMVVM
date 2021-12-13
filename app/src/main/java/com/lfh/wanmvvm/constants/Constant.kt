@@ -6,5 +6,6 @@ object Constant {
     const val BASE_URL = "https://www.wanandroid.com"
     const val USER_INFO = "userInfo"
     const val USER_LOGIN = "longin"
+    const val USER_REGISTER = "register"
 
 }
