@@ -14,7 +14,6 @@ import org.greenrobot.eventbus.EventBus
 class RegisterRepository : BaseRepository() {
 
     val TAG: String = RegisterRepository::class.java.simpleName
-
     suspend fun register(username: String, password: String, repassword: String) = withIO {
         RetrofitManager.getApiService(WanService::class.java)
             .register(username, password, repassword)

@@ -16,6 +16,7 @@ class RegisterActivity : BaseActivity() {
 
     override fun initViewModel() {
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+        binding.registerViewModel = viewModel
     }
 
 
@@ -63,11 +64,15 @@ class RegisterActivity : BaseActivity() {
         }
     }
 
+    /**
+     * 设置当前界面UI状态
+     */
     private fun setStatus(isRegisterFinish: Boolean) {
         binding.etPwd.isEnabled = isRegisterFinish
         binding.etRePwd.isEnabled = isRegisterFinish
         binding.etUserName.isEnabled = isRegisterFinish
         binding.btnRegister.isEnabled = isRegisterFinish
+        binding.ivBack.isEnabled = isRegisterFinish
         if (!isRegisterFinish) {
             binding.registerProBar.visibility = View.VISIBLE
         } else {

@@ -33,9 +33,6 @@ class RegisterViewModel : BaseViewModel() {
     fun register() {
         launch {
             try {
-                userName.set("121111")
-                password.set("aaaa")
-                repassword.set("aaaa")
                 registerLiveData.value = registerRepository.register(
                     userName.get()!!, password.get()!!, repassword.get()!!
                 )
