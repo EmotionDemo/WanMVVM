@@ -1,5 +1,6 @@
 package com.lfh.wanmvvm.logic.register
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.lfh.wanmvvm.exception.ApiException
@@ -18,22 +19,26 @@ class RegisterViewModel : BaseViewModel() {
         set("")
     }
 
+    val repassword = ObservableField<String>().apply {
+        set("")
+    }
 
-    val registerLiveData = MutableLiveData<RegisterModel>()
+    val registerLiveData = MutableLiveData<Any>()
 
     private val registerRepository: RegisterRepository by lazy {
         RegisterRepository()
     }
 
+
     fun register() {
         launch {
             try {
-                registerLiveData.value =
-                    registerRepository.register(
-                        userName.get()!!,
-                        password.get()!!,
-                        password.get()!!
-                    )
+                userName.set("121111")
+                password.set("aaaa")
+                repassword.set("aaaa")
+                registerLiveData.value = registerRepository.register(
+                    userName.get()!!, password.get()!!, repassword.get()!!
+                )
             } catch (e: ApiException) {
                 errorLiveData.value = ApiException(e.errorMsg, e.errorCode)
             }

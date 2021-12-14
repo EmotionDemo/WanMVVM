@@ -20,11 +20,12 @@ interface WanService {
     //注册新用户
     @FormUrlEncoded
     @POST("/user/register")
-    fun register(
+    suspend fun register(
         @Field("username") userName: String,
         @Field("password") password: String,
         @Field("repassword") repassword: String
-    ): DataResponse<RegisterModel>
+    ): DataResponse<Any>
+
 
     //登录
     @FormUrlEncoded

@@ -3,8 +3,7 @@ package com.lfh.wanmvvm.ui.activity
 import android.content.Intent
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelStoreOwner
+import androidx.lifecycle.ViewModelProvider
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.ActivityLoginBinding
 import com.lfh.wanmvvm.logic.base.BaseActivity
@@ -31,17 +30,13 @@ class LoginActivity : BaseActivity() {
     /**
      * 初始化ViewModel
      */
-    override fun <T : ViewModel> initViewModel(
-        owner: ViewModelStoreOwner,
-        modelClass: Class<T>
-    ): T {
-        loginViewModel = super.initViewModel(this, LoginViewModel::class.java)
+    override fun initViewModel() {
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding.loginViewModel = loginViewModel
-        return loginViewModel as T
     }
 
     /**
-     * 初始化ViewModel
+     * 初始化View
      */
     override fun initView() {
         binding.btnLogin.setOnClickListener {
@@ -57,13 +52,16 @@ class LoginActivity : BaseActivity() {
             loginViewModel.login()
         }
 
-        binding.ivRegister.setOnClickListener{
-            val intent = Intent(this,RegisterActivity::class.java)
+        binding.ivRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
     }
 
+    /**
+     * 添加livedata观察
+     */
     override fun observe() {
         loginViewModel.loginLiveData.observe(this, {
             setViewStatus(true)
@@ -74,7 +72,6 @@ class LoginActivity : BaseActivity() {
             setViewStatus(true)
             toast(it.errorMsg)
         })
-
 
     }
 

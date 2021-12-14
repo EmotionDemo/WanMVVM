@@ -2,10 +2,8 @@ package com.lfh.wanmvvm.logic.login
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import com.lfh.wanmvvm.logic.base.BaseViewModel
 import com.lfh.wanmvvm.exception.ApiException
-import kotlinx.coroutines.cancel
+import com.lfh.wanmvvm.logic.base.BaseViewModel
 
 class LoginViewModel : BaseViewModel() {
 
@@ -25,17 +23,15 @@ class LoginViewModel : BaseViewModel() {
         set("")
     }
 
-    /**
-     * 密码是否可见
-     */
-    val pwdIsVisiable = ObservableField<Boolean>().apply {
-        set(false)
-    }
 
     /**
      * 登录LiveData
      */
     val loginLiveData = MutableLiveData<LoginModel>()
+
+    /**
+     * 初始化LoginRepository
+     */
     private val loginRepository by lazy {
         //初始化Repository
         LoginRepository()
@@ -54,8 +50,4 @@ class LoginViewModel : BaseViewModel() {
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelScope.cancel()
-    }
 }

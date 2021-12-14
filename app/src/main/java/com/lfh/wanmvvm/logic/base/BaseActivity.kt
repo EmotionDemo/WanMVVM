@@ -11,18 +11,14 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initBinding()
-        initViewModel(this, BaseViewModel::class.java)
+        initViewModel()
         observe()
         initView()
 
     }
 
-    open fun <T : ViewModel> initViewModel(owner: ViewModelStoreOwner, modelClass: Class<T>): T {
-        return ViewModelProvider(owner).get(modelClass)
-    }
-
-    //init Observe
-    open fun observe() {}
-    open fun initBinding() {}
+    abstract fun initViewModel()
+    abstract fun observe()
+    abstract fun initBinding()
     abstract fun initView()
 }
