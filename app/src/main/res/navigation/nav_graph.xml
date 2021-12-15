@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.lfh.wanmvvm.ui.activity.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:id="@+id/HomeFragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.HomeFragment"
+        android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_home_to_square"
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.lfh.wanmvvm.ui.activity.SecondFragment"
+        android:id="@+id/squarefragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.SquareFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 

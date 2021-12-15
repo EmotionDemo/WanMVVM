@@ -7,6 +7,10 @@
         <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/fragment_item.xml" value="0.13541666666666666" />
+        <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/fragment_item_list.xml" value="0.13541666666666666" />
+        <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/fragment_pjo.xml" value="0.12083333333333333" />
+        <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/fragment_square.xml" value="0.12083333333333333" />
       </map>
     </option>
   </component>

@@ -52,7 +52,7 @@ class RegisterActivity : BaseActivity() {
                 toast("请再次输入密码！")
                 return@setOnClickListener
             }
-            if (!pwd.equals(rePwd)) {
+            if (pwd != rePwd) {
                 toast("两次密码不一致！")
                 return@setOnClickListener
             }
