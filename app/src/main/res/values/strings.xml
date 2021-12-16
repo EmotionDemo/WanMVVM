@@ -4,6 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="home_fragment_label">HomeFragment</string>
     <string name="second_fragment_label">SquareFragment</string>
+    <string name="pjofragment">SquareFragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

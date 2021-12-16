@@ -1,4 +1,4 @@
-package com.lfh.wanmvvm.ui.fragments.groundfragments
+package com.lfh.wanmvvm.logic.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import com.lfh.wanmvvm.R
 
 
-
-class RapexFragment : Fragment() {
+class BaseFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -17,8 +16,7 @@ class RapexFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rapex, container, false)
+        return inflater.inflate(R.layout.fragment_base, container, false)
     }
-
 
 }

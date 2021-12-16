@@ -3,26 +3,77 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/HomeFragment">
+    app:startDestination="@id/MainFragment">
 
     <fragment
-        android:id="@+id/HomeFragment"
-        android:name="com.lfh.wanmvvm.ui.fragments.HomeFragment"
-        android:label="@string/home_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/MainFragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <!--<action
+            android:id="@+id/action_home_to_square"
+            app:destination="@id/squarefragment" />
 
         <action
-            android:id="@+id/action_home_to_square"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_home_to_pubnum"
+            app:destination="@+id/action_home_to_pubnum" />
+
+        <action
+            android:id="@+id/action_home_to_mine"
+            app:destination="@+id/action_home_to_mine"
+            />
+
+        <action
+            android:id="@+id/action_home_to_pjo"
+            app:destination="@+id/action_home_to_pjo"
+            />
+
+-->
+
     </fragment>
+
+   <!-- &lt;!&ndash;广场&ndash;&gt;
     <fragment
         android:id="@+id/squarefragment"
         android:name="com.lfh.wanmvvm.ui.fragments.SquareFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:label="SquareFragment"
+        tools:layout="@layout/fragment_square"/>
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+    &lt;!&ndash;项目页面 &ndash;&gt;
+    <fragment
+        android:id="@+id/pjofragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.PjoFragment"
+        android:label="PjoFragment"
+        tools:layout="@layout/fragment_pjo" />
+
+    &lt;!&ndash;公共号 &ndash;&gt;
+    <fragment
+        android:id="@+id/pubfragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.PubnumFragment"
+        android:label="PubnumFragment"
+        tools:layout="@layout/fragment_pubnum" />
+
+    &lt;!&ndash;个人信息&ndash;&gt;
+    <fragment
+        android:id="@+id/minefragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.MineFragment"
+        android:label="MineFragment"
+        tools:layout="@layout/fragment_mine" />
+
+    &lt;!&ndash;导航&ndash;&gt;
+    <fragment
+        android:id="@+id/navfragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.groundfragments.NavFragment"
+        android:label="NavFragment"
+        tools:layout="@layout/fragment_nav" />
+
+
+    &lt;!&ndash;体系&ndash;&gt;
+    <fragment
+        android:id="@+id/rapexfragment"
+        android:name="com.lfh.wanmvvm.ui.fragments.groundfragments.RapexFragment"
+        android:label="RapexFragment"
+        tools:layout="@layout/fragment_rapex" />-->
+
+
 </navigation>
