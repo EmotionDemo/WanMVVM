@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentMainBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
@@ -24,7 +25,8 @@ class MainFragment : BaseFragment() {
 
     }
 
-    override fun initBinding() {
+    override fun initBinding(inflater: LayoutInflater, container: ViewGroup?) {
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_main,container,false)
 
     }
 

@@ -1,6 +1,5 @@
 package com.lfh.wanmvvm.logic.base
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,19 +14,14 @@ abstract class BaseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_base, container, false)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
         initViewModel()
-        initBinding()
+        initBinding(inflater,container)
+        return inflater.inflate(R.layout.fragment_base, container, false)
     }
 
 
     abstract fun initViewModel()
 
-    abstract fun initBinding()
+    abstract fun initBinding(inflater: LayoutInflater, container: ViewGroup?)
 
 }
