@@ -37,11 +37,6 @@ android {
     packagingOptions {
         pickFirst 'META-INF/*'
     }
-
-    defaultConfig{
-        vectorDrawables.useSupportLibrary = true
-    }
-
 }
 
 dependencies {
