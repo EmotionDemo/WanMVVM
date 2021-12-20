@@ -1,33 +1,67 @@
 package com.lfh.wanmvvm.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentMainBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
 
 
-class MainFragment : BaseFragment() {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
 
+    private val listFragments = arrayListOf<Fragment>()
 
-    private lateinit var binding: FragmentMainBinding
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_main, container, false)
-        return mView
+    init {
+        listFragments.apply {
+            add(homeFragment)
+            add(pjoFragment)
+            add(pubnumFragment)
+            add(squareFragment)
+            add(mineFragment)
+        }
     }
 
-    override fun initViewModel()  {
+    private val homeFragment by lazy { HomeFragment() }
+    private val pjoFragment by lazy { PjoFragment() }
+    private val pubnumFragment by lazy { PubnumFragment() }
+    private val squareFragment by lazy { SquareFragment() }
+    private val mineFragment by lazy { MineFragment() }
+
+
+    override fun initViewModel() {
 
     }
 
-    override fun initBinding(inflater: LayoutInflater, container: ViewGroup?) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_main,container,false)
+    override fun getResourceId() = R.layout.fragment_main
 
+    override fun initFragmentViewModel() {
+
+    }
+
+    override fun init(savedInstanceState: Bundle?) {
+
+        binding.bnvMain.run {
+            setOnNavigationItemSelectedListener() { item ->
+                when (item.itemId) {
+                    R.id.item_home -> {
+                        binding.vpMainPager.setCurrentItem(0, false)
+                    }
+                    R.id.item_ground -> {
+                        binding.vpMainPager.setCurrentItem(1, false)
+                    }
+                    R.id.item_pub_num -> {
+                        binding.vpMainPager.setCurrentItem(2, false)
+                    }
+                    R.id.item_project -> {
+                        binding.vpMainPager.setCurrentItem(3, false)
+                    }
+                    R.id.item_mine -> {
+                        binding.vpMainPager.setCurrentItem(4, false)
+                    }
+                }
+                return true
+            }
+        }
     }
 
 
