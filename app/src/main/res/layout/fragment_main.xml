@@ -32,6 +32,8 @@
             tools:ignore="MissingConstraints"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:itemIconTint="@drawable/selector_bottom_nav_bg_color"
+            app:itemTextColor="@drawable/selector_bottom_nav_bg_color"
             app:menu="@menu/menu"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>

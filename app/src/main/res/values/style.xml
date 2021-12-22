@@ -1,0 +1,8 @@
+
+<resources>
+    <style name="AppThem" parent="Theme.Design.Light.NoActionBar">
+        <item name="color_theme_01">#555557</item>
+        <item name="color_theme_02">#EC04EC</item>
+    </style>
+
+</resources>

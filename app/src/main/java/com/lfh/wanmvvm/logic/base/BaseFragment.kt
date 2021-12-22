@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.lfh.wanmvvm.R
 
 
 abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
@@ -19,7 +18,7 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         getResourceId()?.let {
-            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_base, container, false)
+            binding = DataBindingUtil.inflate(inflater, it, container, false)
 
             return binding.root
         }

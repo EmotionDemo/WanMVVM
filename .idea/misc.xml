@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/drawable/selector_bottom_nav_bg_color.xml" value="0.11574074074074074" />
         <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/activity_log.xml" value="0.20364583333333333" />
         <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/TestDemo/WanMVVM/app/src/main/res/layout/activity_main.xml" value="0.1" />
