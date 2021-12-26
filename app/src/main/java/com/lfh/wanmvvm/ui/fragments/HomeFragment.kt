@@ -9,16 +9,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.logic.base.BaseFragment
+import com.lfh.wanmvvm.util.DialogUtil
 
-class HomeFragment() : BaseFragment() {
+class HomeFragment  : Fragment() {
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val v = inflater.inflate(R.layout.fragment_home, container, false)
+        DialogUtil.showDialog()
+        return v
     }
 
 

@@ -6,6 +6,7 @@ import com.lfh.wanmvvm.R
 
 class DialogUtil {
     private var dialog: Dialog? = null
+
     fun showDialog(context: Context, isShow: Boolean) {
         cancel()
         dialog = Dialog(context)
