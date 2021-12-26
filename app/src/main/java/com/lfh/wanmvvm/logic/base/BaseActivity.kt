@@ -19,7 +19,6 @@ abstract class BaseActivity : AppCompatActivity() {
         initViewModel()
         observe()
         initView()
-
     }
 
     abstract fun initViewModel()

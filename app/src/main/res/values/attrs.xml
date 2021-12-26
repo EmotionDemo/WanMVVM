@@ -2,5 +2,4 @@
 <resources>
     <attr name="color_theme_01" format="color" />
     <attr name="color_theme_02" format="color" />
-
 </resources>

@@ -24,6 +24,7 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initFragmentViewModel()
@@ -39,6 +40,7 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         init(savedInstanceState)
     }
+
     abstract fun initViewModel()
 
     abstract fun getResourceId(): Int
