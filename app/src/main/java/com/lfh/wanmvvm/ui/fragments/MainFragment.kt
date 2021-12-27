@@ -7,6 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentMainBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
+import com.lfh.wanmvvm.logic.home.HomeFragment
 import com.lfh.wanmvvm.util.doSelect
 import com.lfh.wanmvvm.util.iniFragment
 

@@ -4,9 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import com.lfh.wanmvvm.R
 
-class DialogUtil {
+object DialogUtil {
     private var dialog: Dialog? = null
-
     fun showDialog(context: Context, isShow: Boolean) {
         cancel()
         dialog = Dialog(context)
