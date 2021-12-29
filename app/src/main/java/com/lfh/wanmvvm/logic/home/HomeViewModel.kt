@@ -1,6 +1,8 @@
 package com.lfh.wanmvvm.logic.home
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.lfh.wanmvvm.exception.ApiException
 import com.lfh.wanmvvm.logic.base.BaseViewModel
 
 class HomeViewModel : BaseViewModel() {
@@ -10,11 +12,17 @@ class HomeViewModel : BaseViewModel() {
     //Banner
     private val _banner = MutableLiveData<MutableList<BannerModel>>()
 
-    val banner = _banner
+    //对外暴露的banner
+    val banner:LiveData<MutableList<BannerModel>> = _banner
 
     fun getBanner() {
         launch {
-            _banner.value = repository.getBanners()
+            try {
+                _banner.value = repository.getBanners()
+            }catch (e:ApiException){
+                errorLiveData.value = ApiException(e.errorMsg, e.errorCode)
+            }
+
         }
     }
 

@@ -12,7 +12,7 @@ interface WanService {
 
     //获取首页banner
     @GET("/banner/json")
-    fun searchBanners(): DataResponse<MutableList<BannerModel>>
+    suspend fun searchBanners(): DataResponse<MutableList<BannerModel>>
 
     //注册新用户
     @FormUrlEncoded

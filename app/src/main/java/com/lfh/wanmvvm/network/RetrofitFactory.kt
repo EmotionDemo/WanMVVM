@@ -12,6 +12,7 @@ import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -30,11 +31,12 @@ object RetrofitFactory {
                 .cache(getCache())
         }
 
-    fun createRetrofit():Retrofit{
+    fun createRetrofit(): Retrofit {
         val okHttpClient = okHttpClientBuilder.build()
         return Retrofit.Builder()
-            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .baseUrl(BASE_URL)
             .build()
     }
@@ -61,7 +63,7 @@ object RetrofitFactory {
      */
     private fun getCache(): Cache {
         //缓存100MB
-        return Cache(File(MyApp.getContext().cacheDir, "cache"), 1024 * 1024 * 100)
+        return Cache(File(MyApp.getContext().cacheDir, "cache"), (1024 * 1024 * 100).toLong())
     }
 
 }

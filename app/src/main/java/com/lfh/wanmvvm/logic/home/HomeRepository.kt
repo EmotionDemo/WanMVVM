@@ -8,7 +8,7 @@ class HomeRepository : BaseRepository() {
 
     suspend fun getBanners() = withIO {
         RetrofitManager.getApiService(WanService::class.java)
-            .getTopArticle().data()
+            .searchBanners().data()
     }
 
 }
