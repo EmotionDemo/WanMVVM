@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -19,7 +20,6 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
     ): View? {
         getResourceId()?.let {
             binding = DataBindingUtil.inflate(inflater, it, container, false)
-
             return binding.root
         }
     }
@@ -48,5 +48,9 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
     abstract fun initFragmentViewModel()
 
     abstract fun init(savedInstanceState: Bundle?)
+
+    protected fun initTitle(tvTitle: TextView?, title: String) {
+        tvTitle?.text = title
+    }
 
 }

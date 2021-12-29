@@ -1,15 +1,14 @@
 package com.lfh.wanmvvm.ui.fragments
 
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentMainBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
 import com.lfh.wanmvvm.logic.home.HomeFragment
 import com.lfh.wanmvvm.util.doSelect
 import com.lfh.wanmvvm.util.iniFragment
+import com.lfh.wanmvvm.util.removeLongTouchToast
 
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
@@ -53,50 +52,34 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         binding.vpMainPager.doSelect {
             binding.bnvMain.menu.getItem(it).isChecked = true
         }
-
         binding.bnvMain.run {
-            removeLongToutchToast()
+            removeLongTouchToast()
             //lambda表达式
             setOnNavigationItemSelectedListener { item ->
                 when (item.itemId) {
-                    R.id.item_home ->
+                    R.id.item_home -> {
                         binding.vpMainPager.setCurrentItem(0, false)
+                    }
 
-                    R.id.item_ground ->
+                    R.id.item_ground -> {
                         binding.vpMainPager.setCurrentItem(1, false)
+                    }
 
-                    R.id.item_pub_num ->
+                    R.id.item_pub_num -> {
                         binding.vpMainPager.setCurrentItem(2, false)
+                    }
 
-                    R.id.item_project ->
+                    R.id.item_project -> {
                         binding.vpMainPager.setCurrentItem(3, false)
+                    }
 
-                    R.id.item_mine ->
+                    R.id.item_mine -> {
                         binding.vpMainPager.setCurrentItem(4, false)
+                    }
                 }
                 true
             }
         }
-
-    }
-
-    private fun BottomNavigationView.removeLongToutchToast() {
-        this.getChildAt(0).findViewById<View>(R.id.item_home).setOnLongClickListener {
-            true
-        }
-        this.getChildAt(0).findViewById<View>(R.id.item_ground).setOnLongClickListener {
-            true
-        }
-        this.getChildAt(0).findViewById<View>(R.id.item_pub_num).setOnLongClickListener {
-            true
-        }
-        this.getChildAt(0).findViewById<View>(R.id.item_project).setOnLongClickListener {
-            true
-        }
-        this.getChildAt(0).findViewById<View>(R.id.item_mine)
-            .setOnLongClickListener(fun(it: View): Boolean {
-                return true
-            })
     }
 
 

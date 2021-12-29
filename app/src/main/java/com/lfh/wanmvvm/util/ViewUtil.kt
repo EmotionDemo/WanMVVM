@@ -1,9 +1,12 @@
 package com.lfh.wanmvvm.util
 
+import android.view.ViewGroup
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 /**
@@ -41,5 +44,18 @@ fun ViewPager.iniFragment(manager: FragmentManager, fragments: MutableList<Fragm
         }
     }
     return this
-
 }
+
+/**
+ * 移除长按点击弹出Toast
+ */
+fun BottomNavigationView.removeLongTouchToast() {
+    val bottomNavigationMenuView = this.getChildAt(0) as ViewGroup
+    val size = bottomNavigationMenuView.childCount
+    for (index in 0 until size) {
+        bottomNavigationMenuView[index].setOnLongClickListener {
+            true
+        }
+    }
+}
+

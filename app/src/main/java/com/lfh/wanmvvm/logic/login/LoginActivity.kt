@@ -1,4 +1,4 @@
-package com.lfh.wanmvvm.ui.activity
+package com.lfh.wanmvvm.logic.login
 
 import android.content.Intent
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.ActivityLoginBinding
 import com.lfh.wanmvvm.logic.base.BaseActivity
-import com.lfh.wanmvvm.logic.login.LoginViewModel
+import com.lfh.wanmvvm.ui.activity.RegisterActivity
 import com.lfh.wanmvvm.util.toast
 
 /**
