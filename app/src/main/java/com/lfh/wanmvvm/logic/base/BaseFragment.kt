@@ -14,6 +14,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
 
+/**
+ * 
+ */
 abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
     protected lateinit var mView: View
     protected lateinit var binding: Binding

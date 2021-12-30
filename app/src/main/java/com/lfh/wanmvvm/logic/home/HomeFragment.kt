@@ -10,13 +10,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.google.gson.annotations.Until
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentHomeBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
 import com.lfh.wanmvvm.logic.login.LoginActivity
 import com.lfh.wanmvvm.util.toast
-import com.stx.xhb.androidx.XBanner
 import com.stx.xhb.androidx.entity.BaseBannerInfo
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -101,7 +99,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 toast(bannerList!!.get(position).title!!, Toast.LENGTH_SHORT)
             }
         }
-
     }
 
 
