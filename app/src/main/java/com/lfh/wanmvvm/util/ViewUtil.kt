@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
 
 
 /**
@@ -57,5 +58,15 @@ fun BottomNavigationView.removeLongTouchToast() {
             true
         }
     }
+}
+
+/**
+* desc: 取消刷新
+* @author :lifenghua
+* createData :2021/12/30 13:40
+*/
+fun SmartRefreshLayout.cancelShow(){
+    finishLoadMore(0)
+    finishRefresh(0)
 }
 

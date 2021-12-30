@@ -9,36 +9,38 @@
             type="com.lfh.wanmvvm.logic.home.HomeViewModel" />
     </data>
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include
-        android:id="@+id/rl_header"
-        layout="@layout/layout_header" />
-
-    <com.scwang.smart.refresh.layout.SmartRefreshLayout
-        android:id="@+id/smartFreshLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_header"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <include
+            android:id="@+id/rl_header"
+            layout="@layout/layout_header" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smartFreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".logic.home.HomeFragment">
+            android:layout_below="@+id/rl_header"
+            tools:ignore="MissingConstraints">
 
-            <com.stx.xhb.androidx.XBanner
-                android:id="@+id/bannerHome"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                tools:ignore="MissingConstraints" />
+                android:layout_height="match_parent"
+                tools:context=".logic.home.HomeFragment">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/bannerHome" />
-        </RelativeLayout>
-    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
-</RelativeLayout>
+                <com.stx.xhb.androidx.XBanner
+                    android:id="@+id/bannerHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    tools:ignore="MissingConstraints" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvArticleHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bannerHome" />
+            </RelativeLayout>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </RelativeLayout>
 </layout>

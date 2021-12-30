@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import com.lfh.wanmvvm.R
 
 
-
+/**
+* author:lifenghua
+* createTime:2021/12/30 8:33
+*/
 class RapexFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

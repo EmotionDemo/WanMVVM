@@ -3,15 +3,17 @@ package com.lfh.wanmvvm.logic.base
 import com.lfh.wanmvvm.exception.ApiException
 import java.io.Serializable
 
-class DataResponse<T> : Serializable {
+class DataResponse<T>(var errorMsg: String, var errorCode: Int) : Serializable {
     private var data: T? = null
-
-    private var errorMsg = ""
-    private var errorCode = 0
-
     fun data(): T {
+        if (errorCode != 0) {
+            throw ApiException(errorMsg, errorCode)
+        }
         when (errorCode) {
-            0, 200 -> {
+            0 -> {
+                return data!!
+            }
+            200 -> {
                 return data!!
             }
             -1001 -> {
@@ -21,9 +23,13 @@ class DataResponse<T> : Serializable {
             -1 -> {
                 throw ApiException(errorMsg, errorCode)
             }
+            else -> {
+                throw ApiException("network error", -99)
+            }
         }
-        throw ApiException(errorMsg, errorCode)
     }
+
+
 
     /**
      * 如果返回的data是空，就new一个对象出来

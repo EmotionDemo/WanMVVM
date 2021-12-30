@@ -10,7 +10,10 @@ import com.lfh.wanmvvm.util.doSelect
 import com.lfh.wanmvvm.util.iniFragment
 import com.lfh.wanmvvm.util.removeLongTouchToast
 
-
+/**
+* author:lifenghua
+* createTime:2021/12/30 8:33
+*/
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val listFragments = arrayListOf<Fragment>()

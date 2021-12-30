@@ -1,5 +1,6 @@
 package com.lfh.wanmvvm.logic.base
 
+import com.lfh.wanmvvm.exception.ApiException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -13,7 +14,11 @@ open class BaseRepository {
      */
     protected suspend fun <T> withIO(t: suspend () -> T): T {
         return withContext(Dispatchers.IO) {
-            t.invoke()
+            try {
+                t.invoke()
+            }catch (e:Exception){
+                throw ApiException(e.message!!,-99)
+            }
         }
     }
 }

@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lfh.wanmvvm.R
 
-
+/**
+* author:lifenghua
+* createTime:2021/12/30 8:42
+*/
 class NavFragment : Fragment() {
 
 

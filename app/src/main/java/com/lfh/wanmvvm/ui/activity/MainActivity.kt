@@ -3,7 +3,10 @@ package com.lfh.wanmvvm.ui.activity
 import android.os.Bundle
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.logic.base.BaseActivity
-
+/**
+* author:lifenghua
+* createTime:2021/12/30 8:43
+*/
 class MainActivity() : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

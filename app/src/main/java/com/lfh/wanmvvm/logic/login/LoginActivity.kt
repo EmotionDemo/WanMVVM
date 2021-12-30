@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.ActivityLoginBinding
 import com.lfh.wanmvvm.logic.base.BaseActivity
-import com.lfh.wanmvvm.ui.activity.RegisterActivity
+import com.lfh.wanmvvm.logic.register.RegisterActivity
 import com.lfh.wanmvvm.util.toast
 
 /**

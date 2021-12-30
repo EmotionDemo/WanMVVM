@@ -1,4 +1,4 @@
-package com.lfh.wanmvvm.ui.activity
+package com.lfh.wanmvvm.logic.register
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.ActivityRegisterBinding
 import com.lfh.wanmvvm.logic.base.BaseActivity
-import com.lfh.wanmvvm.logic.register.RegisterViewModel
 import com.lfh.wanmvvm.util.toast
-
+/**
+* author:lifenghua
+* createTime:2021/12/30 8:42
+*/
 class RegisterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRegisterBinding

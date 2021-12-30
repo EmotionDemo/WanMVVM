@@ -15,7 +15,8 @@ import androidx.lifecycle.ViewModelProvider
 
 
 /**
- * 
+ * author:lifenghua
+ * createTime:2021/12/30 8:32
  */
 abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
     protected lateinit var mView: View
@@ -39,7 +40,11 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         initFragmentViewModel()
     }
 
-
+    /**
+     * desc fragment生命周期开端在view构建前创建，与宿主activity建立关系
+     * @author lifenghua
+     * createData 2021/12/30 8:52
+     */
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mActivity = context as AppCompatActivity
@@ -52,8 +57,19 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         observe()
     }
 
+
+    /**
+     * desc 初始化viewModel
+     * @author lifenghua
+     * createData 2021/12/30 8:51
+     */
     abstract fun initViewModel()
 
+    /**
+     * desc：获取当前layout的id值
+     * @author lifenghua
+     * createData 2021/12/30 8:51
+     */
     abstract fun getResourceId(): Int
 
     /**
@@ -76,16 +92,16 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
     /**
      * 通过activity获得viewmodel，跟随Activity生命周期
      */
-    protected fun <T : ViewModel?> getActivityViewModel(viewmodel: Class<T>): T {
+    protected fun <T : ViewModel?> getActivityViewModel(viewModel: Class<T>): T {
         if (activityProvider == null) {
             activityProvider = ViewModelProvider(mActivity)
         }
-        return activityProvider!!.get(viewmodel)
+        return activityProvider!!.get(viewModel)
     }
 
 
     /**
-     * 根据fragment获取viewmodel
+     * 根据fragment获取viewmodel，跟随fragment生命周期
      */
     protected fun <T : ViewModel?> getFragmentViewModel(viewModel: Class<T>): T {
 
@@ -95,6 +111,11 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         return fragmentProvider!!.get(viewModel)
     }
 
-    open fun observe(){}
+    /**
+     * desc :添加对livedata的观察
+     * @author lifenghua
+     * createData 2021/12/30 8:50
+     */
+    open fun observe() {}
 
 }

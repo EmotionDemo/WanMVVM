@@ -7,8 +7,7 @@ import com.lfh.wanmvvm.network.WanService
 class HomeRepository : BaseRepository() {
 
     suspend fun getBanners() = withIO {
-        RetrofitManager.getApiService(WanService::class.java)
-            .searchBanners().data()
+        RetrofitManager.getApiService(WanService::class.java).searchBanners().data()
     }
 
 }
