@@ -53,13 +53,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
      */
     override fun init(savedInstanceState: Bundle?) {
         initTitle(binding.rlHeader.tvFgTitle, "主页")
+        //View初始化完成后进行banner初始化
         homeViewModel?.getBanner()
+        //进行刷新框初始化
         binding.smartFreshLayout.setOnRefreshListener {
             homeViewModel?.getBanner()
         }
-        binding.rlHeader.ivSearch.setOnClickListener {
-            startActivity(Intent(context, LoginActivity::class.java))
-        }
+
 
 
     }

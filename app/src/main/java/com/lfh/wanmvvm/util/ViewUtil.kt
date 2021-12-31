@@ -1,12 +1,15 @@
 package com.lfh.wanmvvm.util
 
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.view.get
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.lfh.wanmvvm.R
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 
 
@@ -19,7 +22,7 @@ fun ViewPager.doSelect(selected: (Int) -> Unit) {
         override fun onPageScrolled(
             position: Int,
             positionOffset: Float,
-            positionOffsetPixels: Int
+            positionOffsetPixels: Int,
         ) {
 
         }
@@ -61,12 +64,26 @@ fun BottomNavigationView.removeLongTouchToast() {
 }
 
 /**
-* desc: 取消刷新
-* @author :lifenghua
-* createData :2021/12/30 13:40
-*/
-fun SmartRefreshLayout.cancelShow(){
+ * desc: 取消刷新
+ * @author :lifenghua
+ * createData :2021/12/30 13:40
+ */
+fun SmartRefreshLayout.cancelShow() {
     finishLoadMore(0)
     finishRefresh(0)
+}
+
+object ArticleViewBindUtil {
+
+    @BindingAdapter(value = ["articleCollect"])
+    @JvmStatic
+    fun handleCollect(view: ImageView, collect: Boolean) {
+        if (!collect) {
+            view.setImageResource(R.mipmap.ic_unzan)
+        } else {
+            view.setImageResource(R.mipmap.ic_zaned)
+        }
+
+    }
 }
 
