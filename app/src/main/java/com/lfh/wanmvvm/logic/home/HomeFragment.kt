@@ -1,10 +1,11 @@
 package com.lfh.wanmvvm.logic.home
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -13,7 +14,7 @@ import com.bumptech.glide.Glide
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentHomeBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
-import com.lfh.wanmvvm.logic.login.LoginActivity
+import com.lfh.wanmvvm.logic.base.article.ArticleListModel
 import com.lfh.wanmvvm.util.cancelShow
 import com.lfh.wanmvvm.util.toast
 import com.stx.xhb.androidx.entity.BaseBannerInfo
@@ -24,7 +25,10 @@ import com.stx.xhb.androidx.entity.BaseBannerInfo
  */
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     var homeViewModel: HomeViewModel? = null
+    val TAG = "HomeFragment"
     private var bannerList: MutableList<BannerModel>? = null
+    private var articles: MutableList<ArticleListModel>? = null
+    private var adapter: HomeArticleAdapter? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -55,13 +59,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         initTitle(binding.rlHeader.tvFgTitle, "主页")
         //View初始化完成后进行banner初始化
         homeViewModel?.getBanner()
+        homeViewModel?.getArticle()
         //进行刷新框初始化
         binding.smartFreshLayout.setOnRefreshListener {
             homeViewModel?.getBanner()
+            homeViewModel?.getArticle()
         }
-
-
-
     }
 
     override fun observe() {
@@ -69,6 +72,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         homeViewModel?.banner?.observe(this, Observer {
             bannerList = it
             initBanners()
+            initArticles()
             toast("请求成功！")
             binding.smartFreshLayout.cancelShow()
         })
@@ -80,8 +84,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
          */
         homeViewModel?.errorLiveData?.observe(this, Observer {
             toast(it.errorMsg)
+            Log.d(TAG, it.errorMsg)
             binding.smartFreshLayout.cancelShow()
         })
+    }
+
+    private fun initArticles() {
+        adapter = HomeArticleAdapter(articles!!, requireContext())
+
     }
 
     /**

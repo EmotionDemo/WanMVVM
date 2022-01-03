@@ -1,12 +1,11 @@
 package com.lfh.wanmvvm.network
 
 import com.lfh.wanmvvm.logic.base.DataResponse
+import com.lfh.wanmvvm.logic.base.article.ArticleListModel
+import com.lfh.wanmvvm.logic.home.ArticleModel
 import com.lfh.wanmvvm.logic.home.BannerModel
 import com.lfh.wanmvvm.logic.login.LoginModel
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface WanService {
 
@@ -20,7 +19,7 @@ interface WanService {
     suspend fun register(
         @Field("username") userName: String,
         @Field("password") password: String,
-        @Field("repassword") repassword: String
+        @Field("repassword") repassword: String,
     ): DataResponse<Any>
 
 
@@ -29,7 +28,7 @@ interface WanService {
     @POST("/user/login")
     suspend fun login(
         @Field("username") userName: String,
-        @Field("password") password: String
+        @Field("password") password: String,
     ): DataResponse<LoginModel>
 
 
@@ -37,5 +36,8 @@ interface WanService {
     @GET("/article/top/json")
     suspend fun getTopArticle(): DataResponse<MutableList<BannerModel>>
 
+    //获取首页文章
+    @GET("/article/list/{page}/json")
+    suspend fun getHomeArticle(@Path("page") page: Int): DataResponse<ArticleModel>
 
 }
