@@ -1,6 +1,5 @@
 package com.lfh.wanmvvm.network
 
-import android.content.SharedPreferences
 import com.franmontiel.persistentcookiejar.ClearableCookieJar
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
@@ -26,7 +25,7 @@ object RetrofitFactory {
                 .connectTimeout(DEFAULT_TIMEOUT.toLong(), TimeUnit.MILLISECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT.toLong(), TimeUnit.MILLISECONDS)
                 .retryOnConnectionFailure(true)
-//                .addInterceptor(getLogInterceptor())
+                .addInterceptor(getLogInterceptor())
                 .cookieJar(getCookie())
                 .cache(getCache())
         }

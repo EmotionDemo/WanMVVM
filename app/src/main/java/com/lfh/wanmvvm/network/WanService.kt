@@ -1,10 +1,10 @@
 package com.lfh.wanmvvm.network
 
 import com.lfh.wanmvvm.logic.base.DataResponse
-import com.lfh.wanmvvm.logic.base.article.ArticleListModel
-import com.lfh.wanmvvm.logic.home.ArticleModel
 import com.lfh.wanmvvm.logic.home.BannerModel
+import com.lfh.wanmvvm.logic.home.HomeArticleModel
 import com.lfh.wanmvvm.logic.login.LoginModel
+import retrofit2.Call
 import retrofit2.http.*
 
 interface WanService {
@@ -38,6 +38,6 @@ interface WanService {
 
     //获取首页文章
     @GET("/article/list/{page}/json")
-    suspend fun getHomeArticle(@Path("page") page: Int): DataResponse<ArticleModel>
+    suspend fun getHomeArticle(@Path("page") page: Int):  Call<HomeArticleModel>
 
 }

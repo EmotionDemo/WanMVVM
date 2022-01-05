@@ -32,7 +32,7 @@
                 <com.stx.xhb.androidx.XBanner
                     android:id="@+id/bannerHome"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     tools:ignore="MissingConstraints" />
 
                 <androidx.recyclerview.widget.RecyclerView

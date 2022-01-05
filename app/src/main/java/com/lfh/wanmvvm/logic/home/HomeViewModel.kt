@@ -5,10 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.lfh.wanmvvm.exception.ApiException
 import com.lfh.wanmvvm.logic.base.BaseViewModel
-import com.lfh.wanmvvm.logic.base.article.ArticleListModel
 
 class HomeViewModel : BaseViewModel() {
-    private val TAG:String = "HomeViewModel"
+    private val TAG: String = "HomeViewModel"
     private val repository: HomeRepository by lazy { HomeRepository() }
 
     //Banner
@@ -21,7 +20,7 @@ class HomeViewModel : BaseViewModel() {
     val banner: LiveData<MutableList<BannerModel>> = _banner
 
     //对外暴露的article
-    val article: LiveData<ArticleModel> = _article
+    val articles: LiveData<ArticleModel> = _article
 
     fun getBanner() {
         launch {
@@ -36,10 +35,13 @@ class HomeViewModel : BaseViewModel() {
     fun getArticle() {
         launch {
             try {
-                _article.value = repository.getArticle()
-                Log.d(TAG, _article.value?.data.toString())
+//                _article.value = repository.getArticle()
+              repository.getArticle()
+                Log.d(TAG, "1---->" + _article.value?.toString())
             } catch (e: ApiException) {
-                errorLiveData.value = ApiException(e.errorMsg, e.errorCode)
+                Log.d(TAG, "2---->" + e)
+                errorLiveData.value = e
+
             }
         }
     }

@@ -2,7 +2,7 @@ package com.lfh.wanmvvm.logic.base.article
 
 import android.text.Html
 import android.text.TextUtils
-import com.lfh.wanmvvm.logic.home.DatasBean
+import com.lfh.wanmvvm.logic.home.DataX
 
 data class ArticleListModel(
     var id: Int = 0,
@@ -16,7 +16,7 @@ data class ArticleListModel(
 ) {
     companion object {
         //将服务器返回
-        fun conToLocalData(list: MutableList<DatasBean>): MutableList<ArticleListModel> {
+        fun conToLocalData(list: List<DataX>): MutableList<ArticleListModel> {
             return list.map {
                 ArticleListModel().apply {
                     id = it.id

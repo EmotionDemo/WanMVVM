@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -14,7 +13,6 @@ import com.bumptech.glide.Glide
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.FragmentHomeBinding
 import com.lfh.wanmvvm.logic.base.BaseFragment
-import com.lfh.wanmvvm.logic.base.article.ArticleListModel
 import com.lfh.wanmvvm.util.cancelShow
 import com.lfh.wanmvvm.util.toast
 import com.stx.xhb.androidx.entity.BaseBannerInfo
@@ -27,7 +25,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     var homeViewModel: HomeViewModel? = null
     val TAG = "HomeFragment"
     private var bannerList: MutableList<BannerModel>? = null
-    private var articles: MutableList<ArticleListModel>? = null
     private var adapter: HomeArticleAdapter? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,10 +69,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         homeViewModel?.banner?.observe(this, Observer {
             bannerList = it
             initBanners()
-            initArticles()
             toast("请求成功！")
             binding.smartFreshLayout.cancelShow()
         })
+
+        homeViewModel?.articles?.observe(this, Observer {
+            initArticles(it.data.datas)
+        })
+
 
         /**
          * desc: 失败的livedata
@@ -89,9 +90,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         })
     }
 
-    private fun initArticles() {
-        adapter = HomeArticleAdapter(articles!!, requireContext())
-
+    /**
+    * desc: 初始化文章列表
+    * @author :lifenghua
+    * createData :2022/1/5
+    */
+    private fun initArticles(data: List<DataX>) {
+        adapter = HomeArticleAdapter(data, requireContext())
     }
 
     /**

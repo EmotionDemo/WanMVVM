@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lfh.wanmvvm.R
 import com.lfh.wanmvvm.databinding.LayoutItemArticleBinding
 import com.lfh.wanmvvm.databinding.LayoutItemLoadMoreBinding
-import com.lfh.wanmvvm.logic.base.article.ArticleListModel
-import java.util.zip.Inflater
 
 class HomeArticleAdapter(
-    private val dataArticle: MutableList<ArticleListModel>,
+    private val dataArticle: List<DataX>,
     private val context: Context,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
